@@ -5,16 +5,11 @@
  */
 package weatherApp;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -22,7 +17,7 @@ import javafx.stage.WindowEvent;
  *
  * @author zekart
  */
-public class JavaFXApplication3 extends Application {
+public class MainClass extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
