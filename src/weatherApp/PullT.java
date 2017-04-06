@@ -16,16 +16,17 @@ private String wind ;
 private String preassure ;
 private String dampness ;
 private String cloudness ;
-
+private String city ;
 
 public PullT(){
     try {
         Document doc = Jsoup.connect("https://www.gismeteo.ua/weather-mykolaiv-4983/").get();   //Парсинг страницы
 
         Elements ddElements = doc.getElementsByAttributeValue("class", "section higher"); 
-
+        
+        city = ddElements.select("span.crumb").select("a").first().text();
         temperature = ddElements.select(".temp dd.value.m_temp.c").text();                      //Елементы с тегов
-        cloudness = (ddElements.select("dt.png").attr("title"));
+        cloudness = ddElements.select("dt.png").attr("title");
         wind = ddElements.select("dd.value.m_wind.ms").text();
         preassure = ddElements.select("dd.value.m_press.torr").text();
         dampness = ddElements.select("div.wicon.hum").text().substring(0, 3);      
@@ -34,6 +35,10 @@ public PullT(){
         
     }
 }
+
+    public String getCity() {
+        return city;
+    }
 
 
     public String getTemperature() {
